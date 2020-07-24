@@ -1,0 +1,42 @@
+
+<h1 style="text-align: center;">
+  mat-select controls
+</h1>
+<p>
+  <mat-form-field *ngIf="groups$ | async as groups">
+    <mat-label>Group</mat-label>
+    <mat-select formControlName="groupSelect" (ngModel)="selectedGroupUriName" (ngModelChange)="onGroupChange()">
+      <mat-option *ngFor="let group of groups;" [value]="group.uriName"><span>{{group.name}}</span>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</p>
+<p>
+  <mat-form-field *ngIf="groupYears$ | async as groupYears">
+    <mat-label>Year</mat-label>
+    <mat-select formControlName="groupYearSelect" (ngModel)="selectedYear" (ngModelChange)="onGroupYearChange()">
+      <mat-option *ngFor="let groupYear of groupYears" [value]="groupYear.registeredYear">{{groupYear.registeredYear}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</p>
+<p>
+Two mat-select controls curently don't show because their data sources should be fixed.
+</p>
+<p>
+The mat-selects default values should load on page init, and when the first select value changes the related values in the second one should load.
+</p>
+<!-- <br/>
+<br/>
+<br/>
+<br/>
+<p>dummy select control, just for demo</p>
+<p>
+<mat-form-field>
+  <mat-select>
+    <mat-option value="option1">Option 1</mat-option>
+    <mat-option value="option3">Option 2</mat-option>
+    <mat-option value="option3">Option 3</mat-option>    
+  </mat-select>
+</mat-form-field>
+</p> -->
